@@ -1,0 +1,11 @@
+---
+- yum:
+    name: MySQL-python
+    state: present
+- service:
+    name: mariadb
+    state: started
+- name: "Create db"
+  mysql_db:
+    name: "{{ database_name }}"
+    state: present
