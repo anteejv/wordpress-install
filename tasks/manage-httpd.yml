@@ -1,0 +1,12 @@
+---
+- name: "Configure Apache"
+  template:
+    src: templates/vhost.conf
+    dest: /etc/httpd/conf.d/wordpress.conf
+- name: "Restart Apache"
+  service:
+    name: httpd
+    state: restarted
+- file:
+    path: "{{wp_install_directory}}"
+    state: directory
