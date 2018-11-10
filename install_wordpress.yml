@@ -1,0 +1,11 @@
+---
+- hosts: wordpress_nodes
+  become: yes
+  vars:
+    wp_install_directory: /var/www/wordpress
+    database_name: blog
+  tasks:
+    - include_tasks: tasks/os-dependencies.yml
+    - include_tasks: tasks/manage-db.yml
+    - include_tasks: tasks/manage-httpd.yml
+    - include_tasks: tasks/manage-wp-install.yml
