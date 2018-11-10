@@ -7,5 +7,11 @@
     state: started
 - name: "Create db"
   mysql_db:
-    name: "{{ database_name }}"
+    name: "{{ project_name }}"
+    state: present
+- name: "Create user"
+  mysql_user:
+    name: dbuser
+    password: 1234
+    priv: '*.*:ALL,GRANT'
     state: present
