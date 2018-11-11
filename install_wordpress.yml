@@ -1,5 +1,5 @@
 ---
-- hosts: wordpress_nodes
+- hosts: stuff_nodes
   become: yes
   vars:
     project_name: wordpress-install
